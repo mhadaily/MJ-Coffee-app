@@ -40,11 +40,8 @@ class _MenuListState extends State<MenuList> {
 
   Future<void> _loadItems() async {
     for (Coffee item in widget.coffees) {
-      // 1) Wait for one second
       await Future.delayed(Duration(milliseconds: 80));
-      // 2) Adding data to actual variable that holds the item.
       _items.add(item);
-      // 3) Telling animated list to start animation
       listKey.currentState.insertItem(_items.length - 1);
     }
   }
@@ -67,8 +64,15 @@ class _MenuListState extends State<MenuList> {
             _items[index].name,
             style: Theme.of(context).textTheme.headline5,
           ),
-          leading:
-              Icon(widget.coffees[index].coffeeIcon, size: 40, color: brown),
+          subtitle: Text(
+            _makeSubtitle(index, widget.coffees[index].name),
+            style: Theme.of(context).textTheme.subtitle2,
+          ),
+          leading: Icon(
+            widget.coffees[index].coffeeIcon,
+            size: 40,
+            color: brown,
+          ),
           trailing: Icon(Icons.keyboard_arrow_right),
         ),
         onTap: () {
@@ -78,5 +82,18 @@ class _MenuListState extends State<MenuList> {
         },
       ),
     );
+  }
+
+  int _blockingUI(int n) {
+    if (n <= 1) return n;
+    return _blockingUI(n - 1) + _blockingUI(n - 2);
+  }
+
+  String _makeSubtitle(int index, String title) {
+    final upper = title.toUpperCase();
+    return String.fromCharCodes(upper.runes.toList().reversed);
+    // return index == 10
+    //     ? _blockingUI(35).toString()
+    //     : String.fromCharCodes(upper.runes.toList().reversed);
   }
 }
