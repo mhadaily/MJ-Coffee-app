@@ -27,7 +27,7 @@ class MenuList extends StatelessWidget {
             contentPadding: EdgeInsets.all(15),
             title: Text(
               coffees[index].name,
-              style: TextStyle(color: Colors.brown.shade800),
+              style: Theme.of(context).textTheme.headline5,
             ),
             leading: Icon(coffees[index].coffeeIcon, size: 40, color: brown),
             trailing: Icon(Icons.keyboard_arrow_right),

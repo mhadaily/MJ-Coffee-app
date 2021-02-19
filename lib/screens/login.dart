@@ -40,6 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       key: widget.scaffoldKey,
       appBar: AppBar(
         title: Text("Login"),
@@ -51,50 +52,43 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          child: Form(
-            key: formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Center(
-                  child: SvgPicture.asset(
-                    "assets/hotbeverage.svg",
-                    height: MediaQuery.of(context).size.height / 3,
-                    width: MediaQuery.of(context).size.width,
-                    semanticsLabel: 'MJ Coffee',
-                    fit: BoxFit.fitWidth,
-                  ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32),
+        child: Form(
+          key: formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Center(
+                child: SvgPicture.asset(
+                  "assets/hotbeverage.svg",
+                  height: MediaQuery.of(context).size.height / 3,
+                  width: MediaQuery.of(context).size.width,
+                  semanticsLabel: 'MJ Coffee',
+                  fit: BoxFit.fitWidth,
                 ),
-                LoginInputs(
-                  emailFieldController: _emailFieldController,
-                  passwordFieldController: _passwordFieldController,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Text(
-                      "Forgot password?",
-                      style: TextStyle(
-                        color: darkBrown,
-                        fontWeight: FontWeight.w500,
-                      ),
+              ),
+              LoginInputs(
+                emailFieldController: _emailFieldController,
+                passwordFieldController: _passwordFieldController,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text(
+                    "Forgot password?",
+                    style: TextStyle(
+                      color: darkBrown,
+                      fontWeight: FontWeight.w500,
                     ),
-                  ],
-                ),
-                SizedBox(height: 30),
-                MjButton(
-                  onSubmitLoginButton: _onSubmitLoginButton,
-                ),
-                SizedBox(height: 15),
-                CreateAccount(),
-                SizedBox(height: 35)
-              ],
-            ),
+                  ),
+                ],
+              ),
+              MjButton(
+                onSubmitLoginButton: _onSubmitLoginButton,
+              ),
+              CreateAccount(),
+            ],
           ),
         ),
       ),

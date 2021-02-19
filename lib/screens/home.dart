@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../coffee_router.dart';
 import '../const.dart';
@@ -41,11 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Text(
               "Get the best coffee!",
-              style: TextStyle(
-                  fontFamily: 'Raleway',
-                  fontSize: 30,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.brown),
+              style: Theme.of(context).textTheme.headline2,
               textAlign: TextAlign.center,
             ),
             Row(

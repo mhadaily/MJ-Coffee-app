@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/services.dart';
 import 'package:mjcoffee/data_providers/http_client.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +17,12 @@ bool get isInDebugMode {
 }
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   // Flutter >= 1.17 and Dart >= 2.8
   runZonedGuarded<Future<void>>(() async {
+    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
     runApp(
       AuthProvider(
         auth: AuthDataProvider(http: HttpClient()),
