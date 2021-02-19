@@ -18,7 +18,6 @@ class MenuList extends StatefulWidget {
 
 class _MenuListState extends State<MenuList> {
   final GlobalKey<AnimatedListState> listKey = GlobalKey<AnimatedListState>();
-  int counter = 0;
   List<Coffee> _items = [];
 
   @override
