@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mjcoffee/shared/coffee_additions.dart';
-import 'package:mjcoffee/shared/coffee_count.dart';
-import 'package:mjcoffee/shared/coffee_size.dart';
-import 'package:mjcoffee/shared/coffee_sugar.dart';
-
+import '../widgets/coffee_additions.dart';
+import '../widgets/coffee_count.dart';
+import '../widgets/coffee_size.dart';
+import '../widgets/coffee_sugar.dart';
 import '../models/coffee.dart';
 import '../const.dart';
 
 class MenuDetails extends StatefulWidget {
-  const MenuDetails({this.coffee});
+  const MenuDetails({
+    this.coffee,
+  });
 
   static String routeName = 'loginScreen';
   static Route<MenuDetails> route({Coffee coffee}) {

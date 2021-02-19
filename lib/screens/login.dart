@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mjcoffee/shared/button.dart';
-import 'package:mjcoffee/shared/create_account.dart';
-import 'package:mjcoffee/shared/login_inputs.dart';
-
+import '../widgets/button.dart';
+import '../widgets/create_account.dart';
+import '../widgets/login_inputs.dart';
 import '../data_providers/auth_data_provider.dart';
 import '../data_providers/auth_provider.dart';
 import '../coffee_router.dart';
