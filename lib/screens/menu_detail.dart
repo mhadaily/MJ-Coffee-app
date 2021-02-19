@@ -81,11 +81,11 @@ class _MenuDetailsState extends State<MenuDetails> {
                     children: <Widget>[
                       Text(
                         "Total:",
-                        style: Theme.of(context).textTheme.headline5,
+                        style: Theme.of(context).textTheme.headline6,
                       ),
                       Text(
-                        "USD $total",
-                        style: Theme.of(context).textTheme.headline5,
+                        "\$$total",
+                        style: Theme.of(context).textTheme.headline6,
                       ),
                     ],
                   ),
