@@ -23,7 +23,8 @@ class AuthDataProvider implements BaseAuth {
   ) async {
     final String body = jsonEncode({email: email, password: password});
     final Response res = await http.post('API_ENDPOINT', body);
-
+    print('API_ENDPOINT');
+    print(res.headers);
     return res.statusCode == 200;
   }
 

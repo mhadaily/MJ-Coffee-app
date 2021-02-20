@@ -37,6 +37,13 @@ class _LoginScreenState extends State<LoginScreen> {
   final _passwordFieldController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    _emailFieldController.text = 'me@majidhajian.com';
+    _passwordFieldController.text = 'me@majidhajian.com';
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -112,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
       widget.scaffoldKey.currentState.hideCurrentSnackBar();
-
+      print(loggedIn);
       if (loggedIn) {
         CoffeeRouter.instance.push(MenuScreen.route());
       } else {

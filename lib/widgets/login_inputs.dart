@@ -9,7 +9,7 @@ class LoginInputs extends StatelessWidget {
     this.passwordFieldController,
   }) : super(key: key);
 
-  final emailFieldController;
+  final  emailFieldController;
   final passwordFieldController;
 
   @override
