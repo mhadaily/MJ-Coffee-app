@@ -29,7 +29,7 @@ Future<void> main() async {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           themeMode: ThemeMode.system,
-          home: const SplashScreen(),
+          home: CoffeeRouter.home,
           navigatorKey: CoffeeRouter.instance.navigatorKey,
           theme: getTheme(),
         ),

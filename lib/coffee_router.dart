@@ -21,10 +21,10 @@ class CoffeeRouter {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   /// Setup intial route name
-  String initialRoute = SplashScreen.routeName;
+  static String initialRoute = SplashScreen.routeName;
 
   /// Wdiget to be loaded first
-  Widget home = SplashScreen();
+  static Widget home = const SplashScreen();
 
   Future<T> push<T extends Object>(Route<T> route) async {
     return navigatorKey.currentState.push(route);
