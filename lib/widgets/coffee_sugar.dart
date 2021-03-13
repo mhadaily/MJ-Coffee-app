@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 enum CoffeeSugerCube { no, one, two }
 
 class CoffeeSugar extends StatefulWidget {
-  CoffeeSugar({Key key}) : super(key: key);
+  CoffeeSugar({Key? key}) : super(key: key);
 
   @override
   _CoffeeSugarState createState() => _CoffeeSugarState();

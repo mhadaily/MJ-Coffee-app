@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mjcoffee/widgets/button.dart';
 import '../widgets/coffee_additions.dart';
 import '../widgets/coffee_count.dart';
 import '../widgets/coffee_size.dart';
@@ -8,11 +9,11 @@ import '../const.dart';
 
 class MenuDetails extends StatefulWidget {
   const MenuDetails({
-    this.coffee,
+    required this.coffee,
   });
 
   static String routeName = 'loginScreen';
-  static Route<MenuDetails> route({Coffee coffee}) {
+  static Route<MenuDetails> route({required Coffee coffee}) {
     return MaterialPageRoute<MenuDetails>(
       settings: RouteSettings(name: routeName),
       builder: (BuildContext context) => MenuDetails(
@@ -90,17 +91,10 @@ class _MenuDetailsState extends State<MenuDetails> {
                       ),
                     ],
                   ),
-                  RaisedButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                      side: BorderSide(color: darkBrown),
-                    ),
+                  CommonButton(
                     onPressed: () {},
-                    child: Text(
-                      "Add to cart",
-                    ),
-                    color: darkBrown,
-                    textColor: Colors.white,
+                    text: 'Add to cart',
+                    highlighColor: true,
                   ),
                 ],
               ),

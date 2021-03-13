@@ -26,19 +26,19 @@ class CoffeeRouter {
   /// Wdiget to be loaded first
   Widget home = SplashScreen();
 
-  Future<T> push<T extends Object>(Route<T> route) async {
-    return navigatorKey.currentState.push(route);
+  Future<T?> push<T extends Object>(Route<T> route) async {
+    return navigatorKey.currentState!.push(route);
   }
 
-  Future<T> pushReplacement<T extends Object>(Route<T> route) async {
-    return navigatorKey.currentState.pushReplacement(route);
+  Future<T?> pushReplacement<T extends Object>(Route<T> route) async {
+    return navigatorKey.currentState!.pushReplacement(route);
   }
 
-  Future<T> pushAndRemoveUntil<T extends Object>(
+  Future<T?> pushAndRemoveUntil<T extends Object>(
     Route<T> route, {
-    String untilRoute,
+    String? untilRoute,
   }) async {
-    return navigatorKey.currentState.pushAndRemoveUntil(
+    return navigatorKey.currentState!.pushAndRemoveUntil(
       route,
       (Route<dynamic> _route) {
         return untilRoute == _route.settings.name;
@@ -47,17 +47,17 @@ class CoffeeRouter {
   }
 
   void pop() {
-    navigatorKey.currentState.pop();
+    navigatorKey.currentState!.pop();
   }
 
   void popUntil(String route) {
-    return navigatorKey.currentState.popUntil(ModalRoute.withName(route));
+    return navigatorKey.currentState!.popUntil(ModalRoute.withName(route));
   }
 
   /// Page route builder with forced fade in / out transition.
   static PageRouteBuilder<Widget> fadeTransition(
     RouteSettings settings, {
-    Widget screen,
+    required Widget screen,
   }) {
     return PageRouteBuilder<Widget>(
       settings: settings,
@@ -85,7 +85,7 @@ class CoffeeRouter {
   /// Page route builder with forced slide in from top
   static PageRouteBuilder<Widget> fromTopTransition(
     RouteSettings settings, {
-    Widget screen,
+    required Widget screen,
   }) {
     return PageRouteBuilder<Widget>(
       settings: settings,

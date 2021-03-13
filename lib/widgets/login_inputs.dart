@@ -4,7 +4,7 @@ import 'package:mjcoffee/helpers/validators.dart';
 
 class LoginInputs extends StatelessWidget {
   const LoginInputs({
-    Key key,
+    Key? key,
     this.emailFieldController,
     this.passwordFieldController,
   }) : super(key: key);

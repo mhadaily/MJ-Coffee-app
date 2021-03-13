@@ -12,8 +12,8 @@ import 'menu.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
-    @required this.scaffoldKey,
-  }) : assert(scaffoldKey != null);
+    required this.scaffoldKey,
+  });
 
   final scaffoldKey;
 
@@ -90,8 +90,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-              MjButton(
-                onSubmitLoginButton: _onSubmitLoginButton,
+              CommonButton(
+                onPressed: _onSubmitLoginButton,
+                text: 'login',
               ),
               CreateAccount(),
             ],
@@ -102,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   bool _isFormValidated() {
-    final FormState form = formKey.currentState;
+    final FormState form = formKey.currentState!;
     return form.validate();
   }
 
@@ -110,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (_isFormValidated()) {
       widget.scaffoldKey.currentState.showSnackBar(_loadingSnackBar());
 
-      final BaseAuth auth = AuthProvider.of(context).auth;
+      final BaseAuth auth = AuthProvider.of(context)!.auth!;
       final String email = _emailFieldController.text;
       final String password = _passwordFieldController.text;
       final bool loggedIn = await auth.signInWithEmailAndPassword(

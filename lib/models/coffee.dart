@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class Coffee {
   const Coffee({
-    this.coffeeIcon,
-    this.name,
-    this.price,
+    required this.coffeeIcon,
+    required this.name,
+    required this.price,
   });
 
   final IconData coffeeIcon;

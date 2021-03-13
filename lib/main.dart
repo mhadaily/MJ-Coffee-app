@@ -51,14 +51,14 @@ Future<void> main() async {
   // This captures errors reported by the Flutter framework.
   FlutterError.onError = (FlutterErrorDetails details) async {
     final dynamic exception = details.exception;
-    final StackTrace stackTrace = details.stack;
+    final StackTrace? stackTrace = details.stack;
     if (isInDebugMode) {
       print('Caught Framework Error!');
       // In development mode simply print to console.
       FlutterError.dumpErrorToConsole(details);
     } else {
       // In production mode report to the application zone
-      Zone.current.handleUncaughtError(exception, stackTrace);
+      Zone.current.handleUncaughtError(exception, stackTrace!);
     }
   };
 }

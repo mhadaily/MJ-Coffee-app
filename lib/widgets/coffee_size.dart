@@ -4,11 +4,11 @@ enum CoffeeCupSize { small, medium, large }
 
 class CoffeeSize extends StatefulWidget {
   CoffeeSize({
-    Key key,
+    Key? key,
     this.icon,
   }) : super(key: key);
 
-  final IconData icon;
+  final IconData? icon;
 
   @override
   _CoffeeSizeState createState() => _CoffeeSizeState();

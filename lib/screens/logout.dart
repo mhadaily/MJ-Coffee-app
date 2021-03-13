@@ -3,6 +3,7 @@ import 'package:mjcoffee/screens/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mjcoffee/widgets/button.dart';
 
 class LogoutScreen extends StatefulWidget {
   static String routeName = 'LogoutScreen';
@@ -38,11 +39,11 @@ class _LogoutScreenState extends State<LogoutScreen> {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: OutlineButton(
+          child: CommonButton(
             onPressed: () {
               CoffeeRouter.instance.pushAndRemoveUntil(HomeScreen.route());
             },
-            child: Text('Logout'),
+            text: 'Logout',
           ),
         ),
       ],

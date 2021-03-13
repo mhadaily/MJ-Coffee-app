@@ -14,7 +14,7 @@ class AuthDataProvider implements BaseAuth {
     this.http,
   });
 
-  final HttpClient http;
+  final HttpClient? http;
 
   @override
   Future<bool> signInWithEmailAndPassword(
@@ -22,7 +22,7 @@ class AuthDataProvider implements BaseAuth {
     String password,
   ) async {
     final String body = jsonEncode({email: email, password: password});
-    final Response res = await http.post('API_ENDPOINT', body);
+    final Response res = await http!.post('API_ENDPOINT', body);
     print('API_ENDPOINT');
     print(res.headers);
     return res.statusCode == 200;
@@ -30,7 +30,7 @@ class AuthDataProvider implements BaseAuth {
 
   @override
   Future<bool> signOut() async {
-    final Response res = await http.get('API_ENDPOINT');
+    final Response res = await http!.get('API_ENDPOINT');
 
     return res.statusCode == 200;
   }

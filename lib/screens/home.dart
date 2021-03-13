@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mjcoffee/widgets/button.dart';
 
 import '../coffee_router.dart';
-import '../const.dart';
 import 'login.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -45,37 +45,27 @@ class _HomeScreenState extends State<HomeScreen> {
               textAlign: TextAlign.center,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                ClipRRect(
-                    borderRadius: BorderRadius.circular(25),
-                    child: FlatButton(
-                      padding: EdgeInsets.fromLTRB(55, 15, 55, 15),
-                      onPressed: () {
-                        CoffeeRouter.instance.push(
-                          LoginScreen.route(loginScaffoldKey),
-                        );
-                      },
-                      child: Text(
-                        "Register",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      color: darkBrown,
-                    )),
-                OutlineButton(
-                  key: Key('homeLoginButton'),
-                  padding: EdgeInsets.fromLTRB(60, 15, 60, 15),
+                CommonButton(
+                  onPressed: () {
+                    CoffeeRouter.instance.push(
+                      LoginScreen.route(loginScaffoldKey),
+                    );
+                  },
+                  text: 'Register',
+                  highlighColor: true,
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                CommonButton(
                   onPressed: () {
                     Navigator.of(context).push(
                       LoginScreen.route(loginScaffoldKey),
                     );
                   },
-                  child: Text(
-                    "Log In",
-                    style: TextStyle(color: darkBrown),
-                  ),
-                  borderSide: BorderSide(color: darkBrown),
-                  shape: StadiumBorder(),
+                  text: 'Log In',
                 ),
               ],
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mjcoffee/screens/shops.dart';
 
 import '../screens/logout.dart';
 import '../const.dart';
@@ -19,6 +20,14 @@ class MenuScreen extends StatefulWidget {
 
 class _MenuScreenState extends State<MenuScreen> {
   int _selectedIndex = 0;
+
+  final List<Widget> tabs = [
+    MenuList(coffees: coffees),
+    ShopsScreen(),
+    ShopsScreen(),
+    LogoutScreen(),
+  ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -31,26 +40,30 @@ class _MenuScreenState extends State<MenuScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text("Menu"),
-        centerTitle: false,
-        actions: [
-          Image.asset(
-            "assets/logo.png",
-            fit: BoxFit.fitWidth,
-          ),
-        ],
+        title: Text("Welcome to the WiredBrain"),
+        centerTitle: true,
       ),
-      body: _selectedIndex == 3 ? LogoutScreen() : MenuList(coffees: coffees),
+      body: tabs[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
+        type: BottomNavigationBarType.fixed,
         unselectedItemColor: Colors.brown.shade300,
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.location_on), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.local_drink), label: ""),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Menu",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.location_on),
+            label: "Shops",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_drink),
+            label: "Support",
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: "",
+            label: "Profile",
           ),
         ],
         currentIndex: _selectedIndex,

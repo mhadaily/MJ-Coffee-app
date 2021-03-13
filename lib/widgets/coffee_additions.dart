@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 enum CoffeeAdditionals { cake, icecream, cheese }
 
 class CoffeeAdditions extends StatefulWidget {
-  CoffeeAdditions({Key key}) : super(key: key);
+  CoffeeAdditions({Key? key}) : super(key: key);
 
   @override
   _CoffeeAdditionsState createState() => _CoffeeAdditionsState();

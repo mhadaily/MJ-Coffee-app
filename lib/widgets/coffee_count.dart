@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class CoffeeCount extends StatefulWidget {
   CoffeeCount({
-    Key key,
+    Key? key,
     this.price,
     this.notifyValue,
   }) : super(key: key);
 
-  final num price;
-  final Function(int) notifyValue;
+  final num? price;
+  final Function(int)? notifyValue;
 
   @override
   _CoffeeCountState createState() => _CoffeeCountState();
@@ -30,7 +30,7 @@ class _CoffeeCountState extends State<CoffeeCount> {
                 count = count - 1;
               });
             }
-            widget.notifyValue(count);
+            widget.notifyValue!(count);
           },
           child: Icon(Icons.remove),
           shape: RoundedRectangleBorder(
@@ -55,7 +55,7 @@ class _CoffeeCountState extends State<CoffeeCount> {
             setState(() {
               count = count + 1;
             });
-            widget.notifyValue(count);
+            widget.notifyValue!(count);
           },
           child: Icon(Icons.add),
           shape: RoundedRectangleBorder(

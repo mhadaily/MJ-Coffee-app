@@ -7,8 +7,8 @@ import '../models/coffee.dart';
 
 class MenuList extends StatefulWidget {
   const MenuList({
-    @required this.coffees,
-  }) : assert(coffees != null);
+    required this.coffees,
+  });
 
   final List<Coffee> coffees;
 
@@ -42,7 +42,7 @@ class _MenuListState extends State<MenuList> {
     for (Coffee item in widget.coffees) {
       await Future.delayed(Duration(milliseconds: 80));
       _items.add(item);
-      listKey.currentState.insertItem(_items.length - 1);
+      listKey.currentState!.insertItem(_items.length - 1);
     }
   }
 
@@ -53,9 +53,10 @@ class _MenuListState extends State<MenuList> {
         end: Offset(0, 0),
       ).animate(
         CurvedAnimation(
-            parent: animation,
-            curve: Curves.bounceIn,
-            reverseCurve: Curves.bounceOut),
+          parent: animation,
+          curve: Curves.bounceIn,
+          reverseCurve: Curves.bounceOut,
+        ),
       ),
       child: GestureDetector(
         child: ListTile(
@@ -65,7 +66,7 @@ class _MenuListState extends State<MenuList> {
             style: Theme.of(context).textTheme.headline5,
           ),
           subtitle: Text(
-            _makeSubtitle(index, widget.coffees[index].name),
+            widget.coffees[index].name,
             style: Theme.of(context).textTheme.subtitle2,
           ),
           leading: Icon(
@@ -77,23 +78,12 @@ class _MenuListState extends State<MenuList> {
         ),
         onTap: () {
           CoffeeRouter.instance.push(
-            MenuDetails.route(coffee: _items[index]),
+            MenuDetails.route(
+              coffee: _items[index],
+            ),
           );
         },
       ),
     );
-  }
-
-  int _blockingUI(int n) {
-    if (n <= 1) return n;
-    return _blockingUI(n - 1) + _blockingUI(n - 2);
-  }
-
-  String _makeSubtitle(int index, String title) {
-    final upper = title.toUpperCase();
-    return String.fromCharCodes(upper.runes.toList().reversed);
-    // return index == 10
-    //     ? _blockingUI(35).toString()
-    //     : String.fromCharCodes(upper.runes.toList().reversed);
   }
 }
